@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Telas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🧵 Catálogo de Telas</h1>
+
+<!-- Subir varias imágenes -->
+<input type="file" id="fotos" accept="image/*" multiple>
+<br><br>
+<button onclick="guardarVariasTelas()">➕ Añadir todas las telas seleccionadas</button>
+
+<hr>
+
+<h2>🔍 Filtros</h2>
+
+<select id="filtroColor" onchange="aplicarFiltros()">
+    <option value="">Todos los colores</option>
+    <option value="verde">Verde</option>
+    <option value="rojo">Rojo</option>
+    <option value="azul">Azul</option>
+    <option value="amarillo">Amarillo</option>
+    <option value="blanco">Blanco</option>
+    <option value="negro">Negro</option>
+</select>
+
+<select id="filtroPatron" onchange="aplicarFiltros()">
+    <option value="">Todos los patrones</option>
+    <option value="liso">Liso</option>
+    <option value="lunares">Lunares</option>
+    <option value="rayas">Rayas</option>
+</select>
+
+<br><br>
+<button onclick="exportarPDF()">📄 Exportar PDF del filtro</button>
+
+<hr>
+
+<h2>📚 Catálogo</h2>
+<div id="catalogo"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
