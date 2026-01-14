@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Catálogo de Telas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Catálogo de Telas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- IA -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
+  <!-- PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
 <h1>🧵 Catálogo de Telas</h1>
 
-<!-- Subir varias imágenes -->
 <input type="file" id="fotos" accept="image/*" multiple>
-<br><br>
-<button onclick="guardarVariasTelas()">➕ Añadir todas las telas seleccionadas</button>
+<button onclick="procesarImagenes()">➕ Añadir telas</button>
 
 <hr>
 
-<h2>🔍 Filtros</h2>
+<h3>🔍 Filtros</h3>
 
-<select id="filtroColor" onchange="aplicarFiltros()">
-    <option value="">Todos los colores</option>
-    <option value="verde">Verde</option>
-    <option value="rojo">Rojo</option>
-    <option value="azul">Azul</option>
-    <option value="amarillo">Amarillo</option>
-    <option value="blanco">Blanco</option>
-    <option value="negro">Negro</option>
+<select id="filtroColor" onchange="filtrar()">
+  <option value="">Todos los colores</option>
+  <option>verde</option>
+  <option>rojo</option>
+  <option>azul</option>
+  <option>amarillo</option>
+  <option>blanco</option>
+  <option>negro</option>
 </select>
 
-<select id="filtroPatron" onchange="aplicarFiltros()">
-    <option value="">Todos los patrones</option>
-    <option value="liso">Liso</option>
-    <option value="lunares">Lunares</option>
-    <option value="rayas">Rayas</option>
+<select id="filtroPatron" onchange="filtrar()">
+  <option value="">Todos los patrones</option>
+  <option>liso</option>
+  <option>lunares</option>
+  <option>rayas</option>
+  <option>flores</option>
+  <option>cuadros</option>
 </select>
 
-<br><br>
-<button onclick="exportarPDF()">📄 Exportar PDF del filtro</button>
+<button onclick="exportarPDF()">📄 Exportar PDF</button>
 
 <hr>
 
-<h2>📚 Catálogo</h2>
 <div id="catalogo"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="app.js"></script>
-
 </body>
 </html>
